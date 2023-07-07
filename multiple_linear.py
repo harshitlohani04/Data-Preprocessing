@@ -1,7 +1,6 @@
 # importing libraries
 import numpy as np
 import pandas as pd
-import matplotlib.pyplot as plt
 
 # importing the dataset and dividing into training and test set.
 ds = pd.read_csv('50_Startups.csv')

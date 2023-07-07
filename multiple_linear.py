@@ -3,7 +3,7 @@ import numpy as np
 import pandas as pd
 
 # importing the dataset and dividing into training and test set.
-ds = pd.read_csv('50_Startups.csv')
+ds = pd.read_csv('50_Startups2.csv')
 x = ds.iloc[:,:-1].values
 y = ds.iloc[:,-1].values
 

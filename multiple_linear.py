@@ -22,4 +22,4 @@ ct = ColumnTransformer(transformers=[('encoder',OneHotEncoder(),[3])],remainder=
 x_train = ct.fit_transform(x_train)
 x_test = ct.fit_transform(x_test)
 
-# Now this model has been prepared for multiple linear regression.
+# in the dataset all the values except for the city are in the units of money so feature scaing not required as the scale is same.

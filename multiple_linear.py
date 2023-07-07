@@ -23,25 +23,12 @@ ct = ColumnTransformer(transformers=[('encoder',OneHotEncoder(),[3])],remainder=
 x_train = ct.fit_transform(x_train)
 x_test = ct.fit_transform(x_test)
 
+#Applying feature scaling on the remaining columns
 
-                ###---------------TRAINING THE MULTIPLE LINEAR REGRESSION MODEL ON THE TRAINING SET--------------###
+from sklearn.preprocessing import StandardScaler
+sc = StandardScaler()
+x_train[:,3:] = sc.fit_transform(x_train[:,3:])
+x_test[:,3:] = sc.transform(x_test[:,3:])
+print(x_train,'\n\n',x_test)
 
-
-from sklearn.linear_model import LinearRegression
-
-# NOTE : We didn't perform anything to solve the dummy variable trap or select the model(All In, Back Elimination etc, for selecting 
-# the most significant column). This is bcoz the class that we imported from the module handles it itself.
-
-lr = LinearRegression()
-lr.fit(x_train,y_train)
-
-y_pred = lr.predict(x_test)
-np.set_printoptions(precision=3,suppress=True) # To set the decimal round off to 3 decimal places
-print(np.concatenate(((y_pred.reshape(len(y_pred),1)),(y_test.reshape(len(y_test),1))),1)) # Comparing the predicted data and the actual
-# data by concatinating the 2 vertically(made vertical using the .reshape() function) by the .concatenate function of the numpy module.
-# We concatenated the 2 vectors bcoz we couldn't have plotted the graph in this case as there were many features in the FM.
-
-# We can get the values of the coef and the intercepts using the same method in the simple LR model.
-
-
-  ######################################## END OF THE MULTIPLE LINEAR REGRESSION MODEL ##################################################
+               

@@ -27,7 +27,7 @@ x_test = ct.fit_transform(x_test)
 
 from sklearn.preprocessing import StandardScaler
 sc = StandardScaler()
-x_train[:,3:] = sc.fit_transform(x_train[:,3:])
+x_train[:,3:] = sc.fit_transform(x_train[:,3:]) # We are considering columns from 3 because the first 3 columns will be occupied by the One Hot Encoded data.
 x_test[:,3:] = sc.transform(x_test[:,3:])
 print(x_train,'\n\n',x_test)
 

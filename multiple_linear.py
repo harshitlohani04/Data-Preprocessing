@@ -22,12 +22,4 @@ ct = ColumnTransformer(transformers=[('encoder',OneHotEncoder(),[3])],remainder=
 x_train = ct.fit_transform(x_train)
 x_test = ct.fit_transform(x_test)
 
-#Applying feature scaling on the remaining columns
-
-from sklearn.preprocessing import StandardScaler
-sc = StandardScaler()
-x_train[:,3:] = sc.fit_transform(x_train[:,3:]) # We are considering columns from 3 because the first 3 columns will be occupied by the One Hot Encoded data.
-x_test[:,3:] = sc.transform(x_test[:,3:])
-print(x_train,'\n\n',x_test)
-
-               
+# Now this model has been prepared for multiple linear regression.
